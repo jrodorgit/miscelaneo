@@ -1,0 +1,21 @@
+
+@echo off
+
+svn checkout https://svndg.trabajo.dom/svn/RL/cooperativas/fuente/entregas/0.0.13 C:\Java\svn\0.0.13_D
+
+cd C:\Java\svn\0.0.13_D
+call C:\Java\apache-maven-3.6.0\bin\mvn package
+
+forfiles /P C:\Java\jboss-eap-6.4.5\standalone\tmp /M * /C "cmd /c if @isdir==FALSE del @file"
+forfiles /P C:\Java\jboss-eap-6.4.5\standalone\tmp /M * /C "cmd /c if @isdir==TRUE rmdir /S /Q @file"
+
+forfiles /P C:\Java\jboss-eap-6.4.5\standalone\log /M * /C "cmd /c if @isdir==FALSE del @file"
+forfiles /P C:\Java\jboss-eap-6.4.5\standalone\log /M * /C "cmd /c if @isdir==TRUE rmdir /S /Q @file"
+
+forfiles /P C:\Java\jboss-eap-6.4.5\standalone\deployments /M * /C "cmd /c if @isdir==FALSE del @file"
+forfiles /P C:\Java\jboss-eap-6.4.5\standalone\deployments /M * /C "cmd /c if @isdir==TRUE rmdir /S /Q @file"
+
+
+copy C:\warAplicaciones\cooperativas\0.0.13_D\local\cooperativas-0.0.13_D.war C:\Java\jboss-eap-6.4.5\standalone\deployments
+
+pause
