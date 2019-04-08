@@ -1,0 +1,1 @@
+C:\curl\curl-7.64.1-win64-mingw\bin\curl -k -u 52535465S:***** -X PUT "https://vmcont.trabajo.dom/artifactory/meyss-RL-deploy/es/meyss/Cooperativas/%VERSION%/Cooperativas-%VERSION%-PRE.war" -T C:\warAplicaciones\cooperativas\%VERSION%\pre\Cooperativas-%VERSION%-pre.war
